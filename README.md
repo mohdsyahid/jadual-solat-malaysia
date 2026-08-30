@@ -1,3 +1,5 @@
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/JAKIM_logo.svg" alt="Logo JAKIM" width="90" align="right" />
+
 # 🕌 Jadual Solat Malaysia
 
 [![CI](https://github.com/mohdsyahid/jadual-solat-malaysia/actions/workflows/ci.yml/badge.svg)](https://github.com/mohdsyahid/jadual-solat-malaysia/actions/workflows/ci.yml)
