@@ -31,6 +31,19 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+  }
+  .jakim-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: initial;
   }
   header p { color: var(--muted); max-width: 640px; margin: 0 auto; }
   main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 3rem; }
@@ -141,7 +154,10 @@
       <span class="author-sub">@mohdsyahid on GitHub</span>
     </span>
   </a>
-  <h1>🕌 Jadual Solat Malaysia</h1>
+  <h1>
+    <img class="jakim-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/JAKIM_logo.svg" alt="Logo JAKIM" loading="lazy" />
+    Jadual Solat Malaysia
+  </h1>
   <p>Waktu solat harian untuk semua 60 zon JAKIM — data rasmi, dikemas kini setiap hari, dan percuma untuk digunakan oleh mana-mana aplikasi melalui JSON API.</p>
 </header>
 
@@ -169,6 +185,8 @@
 </main>
 
 <footer>
+  Data dari <a href="https://www.e-solat.gov.my" target="_blank" rel="noopener">JAKIM e-solat</a> — logo JAKIM hak cipta Jabatan Kemajuan Islam Malaysia, digunakan untuk tujuan rujukan sumber.
+  <br />
   Dibuat &amp; diselenggara oleh <a href="https://github.com/mohdsyahid" target="_blank" rel="noopener">@mohdsyahid</a> ·
   Kod sumber: <a href="https://github.com/mohdsyahid/jadual-solat-malaysia" target="_blank" rel="noopener">GitHub</a>
 </footer>
