@@ -1,0 +1,14 @@
+{
+  "name": "jadual-solat-malaysia",
+  "version": "1.0.0",
+  "description": "Static JSON API + web page for JAKIM prayer times, all 60 Malaysian zones. Auto-updated daily via GitHub Actions.",
+  "main": "src/generate.js",
+  "scripts": {
+    "generate": "node src/generate.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": ["malaysia", "solat", "prayer-times", "jakim", "waktu-solat", "open-data"],
+  "author": "Mohd Syahid (https://github.com/mohdsyahid)",
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}

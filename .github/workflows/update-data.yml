@@ -1,0 +1,35 @@
+name: Update prayer times
+
+# Regenerates all zone JSON files daily so "today" is always current.
+# JAKIM's year endpoint returns the whole year, so one daily run keeps
+# the static API fresh without anyone touching the repo.
+on:
+  schedule:
+    - cron: "30 18 * * *" # 18:30 UTC = 02:30 MYT, after midnight rollover
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate prayer time data
+        run: node src/generate.js
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/*.json
+          git diff --cached --quiet || git commit -m "chore: refresh prayer time data [skip ci]"
+          git push

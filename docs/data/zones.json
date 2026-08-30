@@ -1,0 +1,366 @@
+{
+  "generatedAt": "2026-08-30T13:58:57.441Z",
+  "count": 60,
+  "zones": [
+    {
+      "code": "JHR01",
+      "negeri": "Johor",
+      "daerah": "Pulau Aur dan Pulau Pemanggil",
+      "count": 365
+    },
+    {
+      "code": "JHR02",
+      "negeri": "Johor",
+      "daerah": "Johor Bahru, Kota Tinggi, Mersing, Kulai",
+      "count": 365
+    },
+    {
+      "code": "JHR03",
+      "negeri": "Johor",
+      "daerah": "Kluang, Pontian",
+      "count": 365
+    },
+    {
+      "code": "JHR04",
+      "negeri": "Johor",
+      "daerah": "Batu Pahat, Muar, Segamat, Gemas Johor, Tangkak",
+      "count": 365
+    },
+    {
+      "code": "KDH01",
+      "negeri": "Kedah",
+      "daerah": "Kota Setar, Kubang Pasu, Pokok Sena (Daerah Kecil)",
+      "count": 365
+    },
+    {
+      "code": "KDH02",
+      "negeri": "Kedah",
+      "daerah": "Kuala Muda, Yan, Pendang",
+      "count": 365
+    },
+    {
+      "code": "KDH03",
+      "negeri": "Kedah",
+      "daerah": "Padang Terap, Sik",
+      "count": 365
+    },
+    {
+      "code": "KDH04",
+      "negeri": "Kedah",
+      "daerah": "Baling",
+      "count": 365
+    },
+    {
+      "code": "KDH05",
+      "negeri": "Kedah",
+      "daerah": "Bandar Baharu, Kulim",
+      "count": 365
+    },
+    {
+      "code": "KDH06",
+      "negeri": "Kedah",
+      "daerah": "Langkawi",
+      "count": 365
+    },
+    {
+      "code": "KDH07",
+      "negeri": "Kedah",
+      "daerah": "Puncak Gunung Jerai",
+      "count": 365
+    },
+    {
+      "code": "KTN01",
+      "negeri": "Kelantan",
+      "daerah": "Bachok, Kota Bharu, Machang, Pasir Mas, Pasir Puteh, Tanah Merah, Tumpat, Kuala Krai, Mukim Chiku",
+      "count": 365
+    },
+    {
+      "code": "KTN02",
+      "negeri": "Kelantan",
+      "daerah": "Gua Musang (Daerah Galas Dan Bertam), Jeli, Jajahan Kecil Lojing",
+      "count": 365
+    },
+    {
+      "code": "MLK01",
+      "negeri": "Melaka",
+      "daerah": "SELURUH NEGERI MELAKA",
+      "count": 365
+    },
+    {
+      "code": "NGS01",
+      "negeri": "Negeri Sembilan",
+      "daerah": "Tampin, Jempol",
+      "count": 365
+    },
+    {
+      "code": "NGS02",
+      "negeri": "Negeri Sembilan",
+      "daerah": "Jelebu, Kuala Pilah, Rembau",
+      "count": 365
+    },
+    {
+      "code": "NGS03",
+      "negeri": "Negeri Sembilan",
+      "daerah": "Port Dickson, Seremban",
+      "count": 365
+    },
+    {
+      "code": "PHG01",
+      "negeri": "Pahang",
+      "daerah": "Pulau Tioman",
+      "count": 365
+    },
+    {
+      "code": "PHG02",
+      "negeri": "Pahang",
+      "daerah": "Kuantan, Pekan, Muadzam Shah",
+      "count": 365
+    },
+    {
+      "code": "PHG03",
+      "negeri": "Pahang",
+      "daerah": "Jerantut, Temerloh, Maran, Bera, Chenor, Jengka",
+      "count": 365
+    },
+    {
+      "code": "PHG04",
+      "negeri": "Pahang",
+      "daerah": "Bentong, Lipis, Raub",
+      "count": 365
+    },
+    {
+      "code": "PHG05",
+      "negeri": "Pahang",
+      "daerah": "Genting Sempah, Janda Baik, Bukit Tinggi",
+      "count": 365
+    },
+    {
+      "code": "PHG06",
+      "negeri": "Pahang",
+      "daerah": "Cameron Highlands, Genting Higlands, Bukit Fraser",
+      "count": 365
+    },
+    {
+      "code": "PHG07",
+      "negeri": "Pahang",
+      "daerah": "Zon Khas Daerah Rompin, (Mukim Rompin, Mukim Endau, Mukim Pontian)",
+      "count": 365
+    },
+    {
+      "code": "PRK01",
+      "negeri": "Perak",
+      "daerah": "Tapah, Slim River, Tanjung Malim",
+      "count": 365
+    },
+    {
+      "code": "PRK02",
+      "negeri": "Perak",
+      "daerah": "Kuala Kangsar, Sg. Siput , Ipoh, Batu Gajah, Kampar",
+      "count": 365
+    },
+    {
+      "code": "PRK03",
+      "negeri": "Perak",
+      "daerah": "Lenggong, Pengkalan Hulu, Grik",
+      "count": 365
+    },
+    {
+      "code": "PRK04",
+      "negeri": "Perak",
+      "daerah": "Temengor, Belum",
+      "count": 365
+    },
+    {
+      "code": "PRK05",
+      "negeri": "Perak",
+      "daerah": "Kg Gajah, Teluk Intan, Bagan Datuk, Seri Iskandar, Beruas, Parit, Lumut, Sitiawan, Pulau Pangkor",
+      "count": 365
+    },
+    {
+      "code": "PRK06",
+      "negeri": "Perak",
+      "daerah": "Selama, Taiping, Bagan Serai, Parit Buntar",
+      "count": 365
+    },
+    {
+      "code": "PRK07",
+      "negeri": "Perak",
+      "daerah": "Bukit Larut",
+      "count": 365
+    },
+    {
+      "code": "PLS01",
+      "negeri": "Perlis",
+      "daerah": "SELURUH NEGERI PERLIS",
+      "count": 365
+    },
+    {
+      "code": "PNG01",
+      "negeri": "Pulau Pinang",
+      "daerah": "SELURUH NEGERI PULAU PINANG",
+      "count": 365
+    },
+    {
+      "code": "SBH01",
+      "negeri": "Sabah",
+      "daerah": "Bahagian Sandakan (Timur), Bukit Garam, Semawang, Temanggong, Tambisan, Bandar Sandakan, Sukau",
+      "count": 365
+    },
+    {
+      "code": "SBH02",
+      "negeri": "Sabah",
+      "daerah": "Beluran, Telupid, Pinangah, Terusan, Kuamut, Bahagian Sandakan (Barat)",
+      "count": 365
+    },
+    {
+      "code": "SBH03",
+      "negeri": "Sabah",
+      "daerah": "Lahad Datu, Silabukan, Kunak, Sahabat, Semporna, Tungku, Bahagian Tawau (Timur)",
+      "count": 365
+    },
+    {
+      "code": "SBH04",
+      "negeri": "Sabah",
+      "daerah": "Bandar Tawau, Balong, Merotai, Kalabakan, Bahagian Tawau (Barat)",
+      "count": 365
+    },
+    {
+      "code": "SBH05",
+      "negeri": "Sabah",
+      "daerah": "Kudat, Kota Marudu, Pitas, Pulau Banggi, Bahagian Kudat",
+      "count": 365
+    },
+    {
+      "code": "SBH06",
+      "negeri": "Sabah",
+      "daerah": "Gunung Kinabalu",
+      "count": 365
+    },
+    {
+      "code": "SBH07",
+      "negeri": "Sabah",
+      "daerah": "Kota Kinabalu, Ranau, Kota Belud, Tuaran, Penampang, Papar, Putatan, Bahagian Pantai Barat",
+      "count": 365
+    },
+    {
+      "code": "SBH08",
+      "negeri": "Sabah",
+      "daerah": "Pensiangan, Keningau, Tambunan, Nabawan, Bahagian Pendalaman (Atas)",
+      "count": 365
+    },
+    {
+      "code": "SBH09",
+      "negeri": "Sabah",
+      "daerah": "Beaufort, Kuala Penyu, Sipitang, Tenom, Long Pasia, Membakut, Weston, Bahagian Pendalaman (Bawah)",
+      "count": 365
+    },
+    {
+      "code": "SWK01",
+      "negeri": "Sarawak",
+      "daerah": "Limbang, Lawas, Sundar, Trusan",
+      "count": 365
+    },
+    {
+      "code": "SWK02",
+      "negeri": "Sarawak",
+      "daerah": "Miri, Niah, Bekenu, Sibuti, Marudi",
+      "count": 365
+    },
+    {
+      "code": "SWK03",
+      "negeri": "Sarawak",
+      "daerah": "Pandan, Belaga, Suai, Tatau, Sebauh, Bintulu",
+      "count": 365
+    },
+    {
+      "code": "SWK04",
+      "negeri": "Sarawak",
+      "daerah": "Sibu, Mukah, Dalat, Song, Igan, Oya, Balingian, Kanowit, Kapit",
+      "count": 365
+    },
+    {
+      "code": "SWK05",
+      "negeri": "Sarawak",
+      "daerah": "Sarikei, Matu, Julau, Rajang, Daro, Bintangor, Belawai",
+      "count": 365
+    },
+    {
+      "code": "SWK06",
+      "negeri": "Sarawak",
+      "daerah": "Lubok Antu, Sri Aman, Roban, Debak, Kabong, Lingga, Engkelili, Betong, Spaoh, Pusa, Saratok",
+      "count": 365
+    },
+    {
+      "code": "SWK07",
+      "negeri": "Sarawak",
+      "daerah": "Serian, Simunjan, Samarahan, Sebuyau, Meludam",
+      "count": 365
+    },
+    {
+      "code": "SWK08",
+      "negeri": "Sarawak",
+      "daerah": "Kuching, Bau, Lundu, Sematan",
+      "count": 365
+    },
+    {
+      "code": "SWK09",
+      "negeri": "Sarawak",
+      "daerah": "Zon Khas (Kampung Patarikan)",
+      "count": 365
+    },
+    {
+      "code": "SGR01",
+      "negeri": "Selangor",
+      "daerah": "Gombak, Petaling, Sepang, Hulu Langat, Hulu Selangor, Shah Alam",
+      "count": 365
+    },
+    {
+      "code": "SGR02",
+      "negeri": "Selangor",
+      "daerah": "Kuala Selangor, Sabak Bernam",
+      "count": 365
+    },
+    {
+      "code": "SGR03",
+      "negeri": "Selangor",
+      "daerah": "Klang, Kuala Langat",
+      "count": 365
+    },
+    {
+      "code": "TRG01",
+      "negeri": "Terengganu",
+      "daerah": "Kuala Terengganu, Marang, Kuala Nerus",
+      "count": 365
+    },
+    {
+      "code": "TRG02",
+      "negeri": "Terengganu",
+      "daerah": "Besut, Setiu",
+      "count": 365
+    },
+    {
+      "code": "TRG03",
+      "negeri": "Terengganu",
+      "daerah": "Hulu Terengganu",
+      "count": 365
+    },
+    {
+      "code": "TRG04",
+      "negeri": "Terengganu",
+      "daerah": "Dungun, Kemaman",
+      "count": 365
+    },
+    {
+      "code": "WLY01",
+      "negeri": "Wilayah Persekutuan",
+      "daerah": "Kuala Lumpur, Putrajaya",
+      "count": 365
+    },
+    {
+      "code": "WLY02",
+      "negeri": "Wilayah Persekutuan",
+      "daerah": "Labuan",
+      "count": 365
+    }
+  ]
+}

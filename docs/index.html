@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jadual Solat Malaysia — Waktu Solat Semua Zon JAKIM</title>
+<meta name="description" content="Waktu solat harian untuk semua 60 zon JAKIM di Malaysia. Data rasmi JAKIM, auto-update harian, ada JSON API percuma untuk developer." />
+<style>
+  :root {
+    --bg: #0b0e14;
+    --panel: #121722;
+    --accent: #39ff9c;
+    --accent2: #00c8ff;
+    --text: #e8eef7;
+    --muted: #8592a6;
+    --border: #232b3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #131a26 0%, #0b0e14 60%);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header { padding: 3rem 1.5rem 1.5rem; text-align: center; }
+  header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.3rem);
+    margin: 0 0 .5rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header p { color: var(--muted); max-width: 640px; margin: 0 auto; }
+  main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+  .author-card {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .4rem .9rem .4rem .4rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .author-card:hover { border-color: var(--accent); }
+  .author-card img { width: 32px; height: 32px; border-radius: 50%; display: block; }
+  .author-card .author-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .author-card .author-name { font-size: .8rem; font-weight: 700; }
+  .author-card .author-sub { font-size: .68rem; color: var(--muted); }
+  @media (max-width: 600px) { .author-card { position: static; margin: 0 auto 1rem; width: fit-content; } }
+  .controls { display: flex; flex-direction: column; gap: .6rem; margin: 1.8rem 0 1.2rem; }
+  select {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: .7rem .9rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  select:focus { outline: none; border-color: var(--accent); }
+  .status { font-size: .82rem; color: var(--muted); }
+  .times {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .times .zone-title { margin: 0 0 .2rem; font-size: 1.15rem; }
+  .times .zone-sub { color: var(--muted); font-size: .85rem; margin-bottom: 1rem; }
+  .times .date-line { color: var(--accent2); font-weight: 700; margin-bottom: .9rem; }
+  .times table { width: 100%; border-collapse: collapse; }
+  .times td { padding: .45rem .3rem; border-bottom: 1px solid var(--border); }
+  .times td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+  .times tr:last-child td { border-bottom: none; }
+  .times tr.next td { color: var(--accent); }
+  .next-badge {
+    display: inline-block;
+    font-size: .65rem;
+    background: rgba(57,255,156,.12);
+    color: var(--accent);
+    padding: .1rem .45rem;
+    border-radius: 999px;
+    margin-left: .4rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: .8rem;
+    margin-bottom: 1.5rem;
+  }
+  .mini-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    text-align: center;
+  }
+  .mini-card .label { font-size: .75rem; color: var(--muted); }
+  .mini-card .val { font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mini-card.next { border-color: var(--accent); }
+  .mini-card.next .val { color: var(--accent); }
+  .info {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem 1.6rem;
+    font-size: .88rem;
+    color: var(--muted);
+  }
+  .info h2 { color: var(--text); font-size: 1.05rem; margin-top: 0; }
+  .info code {
+    background: #0b0e14;
+    padding: .1rem .4rem;
+    border-radius: 4px;
+    color: var(--accent);
+    font-size: .8rem;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .82rem;
+    padding: 1.5rem 1rem 3rem;
+  }
+  footer a { color: var(--accent2); }
+</style>
+</head>
+<body>
+<header style="position: relative;">
+  <a class="author-card" href="https://github.com/mohdsyahid" target="_blank" rel="noopener">
+    <img src="https://avatars.githubusercontent.com/u/8221580?v=4" alt="Mohd Syahid" loading="lazy" />
+    <span class="author-text">
+      <span class="author-name">Mohd Syahid</span>
+      <span class="author-sub">@mohdsyahid on GitHub</span>
+    </span>
+  </a>
+  <h1>🕌 Jadual Solat Malaysia</h1>
+  <p>Waktu solat harian untuk semua 60 zon JAKIM — data rasmi, dikemas kini setiap hari, dan percuma untuk digunakan oleh mana-mana aplikasi melalui JSON API.</p>
+</header>
+
+<main>
+  <div class="controls">
+    <select id="zone-select" aria-label="Pilih zon"></select>
+    <span class="status" id="status-line"></span>
+  </div>
+
+  <div class="cards" id="mini-cards"></div>
+
+  <div class="times" id="full-table" hidden>
+    <p class="zone-title" id="zone-title"></p>
+    <p class="zone-sub" id="zone-sub"></p>
+    <p class="date-line" id="date-line"></p>
+    <table id="times-table"></table>
+  </div>
+
+  <div class="info">
+    <h2>JSON API percuma</h2>
+    <p>Data penuh setahun untuk setiap zon tersedia sebagai JSON statik — sesuai untuk bot, app, atau skrip apa sahaja. Contoh (zon <code>SGR01</code> = Selangor - Gombak/Petaling/Shah Alam):</p>
+    <p><code>https://mohdsyahid.github.io/jadual-solat-malaysia/data/SGR01.json</code></p>
+    <p>Senarai semua zon: <code>https://mohdsyahid.github.io/jadual-solat-malaysia/data/zones.json</code>. Gantikan kod zon dalam URL mengikut senarai tersebut. Data dikemas kini harian melalui GitHub Actions, sumber rasmi <a href="https://www.e-solat.gov.my" target="_blank" rel="noopener">JAKIM e-solat</a>.</p>
+  </div>
+</main>
+
+<footer>
+  Dibuat &amp; diselenggara oleh <a href="https://github.com/mohdsyahid" target="_blank" rel="noopener">@mohdsyahid</a> ·
+  Kod sumber: <a href="https://github.com/mohdsyahid/jadual-solat-malaysia" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<script>
+const PRAYERS = ["imsak", "fajr", "syuruk", "dhuha", "dhuhr", "asr", "maghrib", "isha"];
+const PRAYER_LABELS = { imsak: "Imsak", fajr: "Subuh", syuruk: "Syuruk", dhuha: "Dhuha", dhuhr: "Zohor", asr: "Asar", maghrib: "Maghrib", isha: "Isyak" };
+const STORAGE_KEY = "jsm_default_zone";
+
+const select = document.getElementById("zone-select");
+const statusLine = document.getElementById("status-line");
+const miniCards = document.getElementById("mini-cards");
+const fullTable = document.getElementById("full-table");
+const zoneTitle = document.getElementById("zone-title");
+const zoneSub = document.getElementById("zone-sub");
+const dateLine = document.getElementById("date-line");
+const timesTable = document.getElementById("times-table");
+
+let zoneIndex = [];
+let currentData = null;
+
+function todayIso() {
+  const now = new Date();
+  const kl = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
+  const y = kl.getFullYear();
+  const m = String(kl.getMonth() + 1).padStart(2, "0");
+  const d = String(kl.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function minutesOf(hhmm) {
+  const [h, m] = hhmm.split(":").map(Number);
+  return h * 60 + m;
+}
+
+function nextPrayer(records) {
+  const now = new Date();
+  const kl = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
+  const nowMin = kl.getHours() * 60 + kl.getMinutes();
+  for (const p of PRAYERS) {
+    if (minutesOf(records[p]) > nowMin) return p;
+  }
+  return null; // all passed for today
+}
+
+function render(data) {
+  currentData = data;
+  const today = todayIso();
+  const record = data.prayerTimes.find((r) => r.date === today);
+  if (!record) {
+    statusLine.textContent = "Tiada data untuk hari ini — data mungkin belum dikemas kini.";
+    return;
+  }
+
+  const zone = zoneIndex.find((z) => z.code === data.zone);
+  zoneTitle.textContent = `${zone ? zone.negeri : ""} — ${zone ? zone.daerah : data.zone}`;
+  zoneSub.textContent = `Zon JAKIM: ${data.zone}`;
+  dateLine.textContent = new Date(`${record.date}T00:00:00`).toLocaleDateString("ms-MY", { weekday: "long", day: "numeric", month: "long", year: "numeric" }) + ` · ${record.hijri}`;
+
+  const next = nextPrayer(record);
+
+  miniCards.innerHTML = "";
+  for (const p of PRAYERS) {
+    const card = document.createElement("div");
+    card.className = "mini-card" + (p === next ? " next" : "");
+    card.innerHTML = `<div class="label">${PRAYER_LABELS[p]}${p === next ? '<span class="next-badge">seterusnya</span>' : ""}</div><div class="val">${record[p]}</div>`;
+    miniCards.appendChild(card);
+  }
+
+  timesTable.innerHTML = "";
+  for (const p of PRAYERS) {
+    const row = document.createElement("tr");
+    if (p === next) row.className = "next";
+    row.innerHTML = `<td>${PRAYER_LABELS[p]}</td><td>${record[p]}</td>`;
+    timesTable.appendChild(row);
+  }
+  fullTable.hidden = false;
+
+  statusLine.textContent = `Kemas kini data: ${new Date(data.generatedAt).toLocaleDateString("ms-MY")}`;
+}
+
+async function loadZone(code) {
+  statusLine.textContent = "Memuatkan...";
+  try {
+    const res = await fetch(`data/${code}.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    render(data);
+  } catch (err) {
+    statusLine.textContent = `Gagal memuatkan data zon ${code}: ${err.message}`;
+  }
+}
+
+function populateSelect() {
+  const groups = new Map();
+  for (const z of zoneIndex) {
+    if (!groups.has(z.negeri)) groups.set(z.negeri, []);
+    groups.get(z.negeri).push(z);
+  }
+  for (const [negeri, zones] of groups) {
+    const optgroup = document.createElement("optgroup");
+    optgroup.label = negeri;
+    for (const z of zones) {
+      const opt = document.createElement("option");
+      opt.value = z.code;
+      opt.textContent = z.daerah;
+      optgroup.appendChild(opt);
+    }
+    select.appendChild(optgroup);
+  }
+}
+
+select.addEventListener("change", () => {
+  localStorage.setItem(STORAGE_KEY, select.value);
+  loadZone(select.value);
+});
+
+(async function init() {
+  const res = await fetch("data/zones.json");
+  const payload = await res.json();
+  zoneIndex = payload.zones;
+  populateSelect();
+  const saved = localStorage.getItem(STORAGE_KEY);
+  select.value = saved && zoneIndex.some((z) => z.code === saved) ? saved : "WLY01";
+  loadZone(select.value);
+})();
+</script>
+</body>
+</html>
